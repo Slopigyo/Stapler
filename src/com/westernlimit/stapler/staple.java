@@ -1,8 +1,10 @@
 package com.westernlimit.stapler;
 
 import android.app.Activity;
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -21,6 +23,8 @@ public class staple extends Activity implements OnClickListener {
 		initializeLayout();
 		mpStapleClick = MediaPlayer.create(this, R.raw.staple);
 		
+
+		
 		
 	}
 	
@@ -36,9 +40,11 @@ public class staple extends Activity implements OnClickListener {
 	
 	@Override
 	public void onClick(View v) {
+		Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		switch(v.getId()) {
 		case R.id.staple_button :
 			mpStapleClick.start();
+			vibe.vibrate(150);
 			
 			
 			
