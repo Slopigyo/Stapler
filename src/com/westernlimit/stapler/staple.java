@@ -43,8 +43,15 @@ public class staple extends Activity implements OnClickListener {
 		Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		switch(v.getId()) {
 		case R.id.staple_button :
-			mpStapleClick.start();
-			vibe.vibrate(150);
+			vibe.vibrate(150);                                   //Vibration on button press
+			                                                     //check if sound is already playing if not start if yes restart at 0 
+			if(mpStapleClick.isPlaying() == false) {               
+				mpStapleClick.start();
+			}
+			
+			else if(mpStapleClick.isPlaying() == true) {
+				mpStapleClick.seekTo(0);
+			}
 			
 			
 			
